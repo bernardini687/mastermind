@@ -41,5 +41,11 @@ module Mastermind
         positions
       end
     end
+
+    def hash_builder
+      Hash.new do |hash, key|
+        hash[key] = pegs.each_index.select { |i| pegs[i] == key }
+      end
+    end
   end
 end
