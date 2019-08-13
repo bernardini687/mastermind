@@ -33,5 +33,13 @@ module Mastermind
     def random_pegs
       Mastermind::COLORS.sample(5)
     end
+
+    def positions
+      @positions ||= begin
+        positions = hash_builder
+        pegs.each { |peg| positions[peg] }
+        positions
+      end
+    end
   end
 end
